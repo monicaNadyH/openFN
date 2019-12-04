@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="worklightHybridBuild" default="build_wl_ios" basedir=".">
+
+	<property name="buildDir" value="." />
+	<property name="project.path" value="." />
+	<property name="output.path" value="${buildDir}/dist" />
+	<property name="wlApp" value="OpenFNRetailBanking" />
+	<property name="wliOSHost" value="https://170.226.21.108:9080" />
+	<property name="wliOSContext" value="/mobileciebanking" />
+	<property name="wlProject" value="OpenFNBankingAPIM" />
+	<property name="wlConcat" value="false" />
+	<property name="wlMinify" value="false" />
+
+	<target name="build_wl_ios">
+		<echo> build_wl_ios ${project.path}/${wlApp}-ipad.wlapp</echo>
+		<echo> worklightServerHost = ${wliOSHost}/${wliOSContext}</echo>
+
+		<app-builder
+				worklightServerHost="${wliOSHost}/${wliOSContext}"
+				nativeProjectPrefix="${wlProject}"
+				applicationFolder="${project.path}/apps/${wlApp}/"
+				environments="ipad"
+				outputFolder="${output.path}/${wlProject}"
+				concatenate="${wlConcat}"
+				minifyResources="${wlMinify}">
+		</app-builder>
+	</target>
+
+	<taskdef resource="com/worklight/ant/defaults.properties">
+		<classpath>
+			<pathelement location="${buildDir}/lib/worklight-ant-builder.jar"/>
+		</classpath>
+	</taskdef>
+
+</project>

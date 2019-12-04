@@ -1,0 +1,50 @@
+<ion-view id="loginContainer" view-title="Login" name="login-view"
+	hide-nav-bar="true" can-swipe-back="false"> <ion-content
+	scroll="false">
+	<div class="login-container">
+	
+		<div class="row persona-images">
+		<div class="col"><img src="images/natalie-round.png" class="round-image"/></div>
+		<div class="col"><img src="images/circle.png" class="round-image"/></div>
+		<div class="col"><img src="images/circle.png" class="round-image"/></div>
+		
+		
+		</div>
+		<div class="list list-inset custom-login">
+			<label class="item item-input">
+				<div class="input-label">Username</div> <input type="text"
+				placeholder="Username" ng-model="model.username"
+				style="text-align: right;">
+			</label> <label class="item item-input">
+				<div class="input-label">Password</div> <input type="password"
+				placeholder="Password" ng-model="model.password"
+				style="text-align: right;">
+			</label>
+	
+		</div>
+	
+	
+		<button class="button button-block button-dark login-btn-new"
+			ng-click="login()">Login</button>
+		<div class="row-custom">
+			<div class="column6 user-id">
+				<input type="checkbox" checked> Save User ID
+			</div>
+			<div class="column6 touch-id">
+				<input type="checkbox"> Enable Touch ID
+			</div>
+		</div>
+		<div class="row-custom">
+			<div class="column12 forgot-password">Forgot Password?</div>
+		</div>
+		<div class="row-custom small-print-new" style="margin-bottom:0px;">
+			<div class="column3">&nbsp;</div>
+			<div class="column3  center">Find Locations</div>
+			<div class="column3 blue-divider">Contact Us</div>
+		</div>
+		<div class="row-custom small-print-new" style="margin-top:5px;">
+		<div class="column12 center">&#64;2017 Open Financial Network</div>
+		</div>
+	
+	</div>
+</ion-content> </ion-view>

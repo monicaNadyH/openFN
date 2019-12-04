@@ -1,0 +1,153 @@
+<ion-view view-title="Review and Pay" class="greyBackground"> <ion-content>
+<div id="buyPackageContainer">
+	
+	<div class="row border list padding-side list-top-padding">
+		<div class="col padding0">
+			<div class="description bold-text desc-padding width100">Dates</div>
+			<div
+				class="description less-height desc-padding width100 desc-bottom-padding">December
+				20th, 2016- December 24th, 2016</div>
+			<div class="description bold-text desc-padding width100">Flight</div>
+			<div
+				class="description less-height desc-padding width100 desc-bottom-padding">
+				Departure: Virgin Airways 2143, Departs 0800 December 20th<br />
+				Return: Virgin Airways 2142, Departs 0800 December 24th
+			</div>
+			<div class="description bold-text desc-padding width100">Hotel</div>
+			<div
+				class="description less-height desc-padding width100 desc-bottom-padding">Hilton {{ model.packageDetail.city }}, {{ model.packageDetail.country }}</div>
+		</div>
+	</div>
+	<div class="row desc-padding">
+		<div class="col left" style="padding-left: 10px;">Regular Price</div>
+		<div class="col right">{{ model.packageRegularPrice | currency }}</div>
+	</div>
+	<div class="row desc-padding">
+		<div class="col left  border" style="padding-left: 10px;">Person</div>
+		<div class="col right  border">{{ model.numPersons }}</div>
+	</div>
+	<div class="row desc-padding">
+		<div class="col left" style="padding-left: 10px;">Total</div>
+		<div class="col right">{{ model.packageRegularTotal | currency }}</div>
+	</div>
+	<div class="row border-round2">
+		<div class="col padding0">
+			<img src="images/pay-with-ofn.png" class="pay-img" />
+		</div>
+	</div>
+	<div class="border-round">
+		<!-- <div class="row desc-padding">
+			<div class="col left" style="padding-left:10px;">Subtotal</div>
+			<div class="col right">{{ model.finalPrice() | currency }}</div>
+		</div>  --> 
+		<div class="row desc-padding border">
+			<div class="col left" style="padding-left: 10px;">OpenPay Discount</div>
+			<div class="col right">-{{ model.cardDiscount | currency }}</div>
+		</div>
+		<div class="row desc-padding" style="margin-top:10px;">
+			<div class="col left" style="padding-left: 10px;">Apply Points</div>
+			<div class="col right"><input type="number" class="persons right points-width" style="float:right;height:30px;-webkit-appearance: none;" ng-model="model.applyPointsForPurchase" /></div>
+		</div>
+		<div class="row desc-padding" style="height:12px;">
+			<div class="col left available-points" >You have {{ model.openPointsBalance | number }} points</div>
+			<div class="col right"> &nbsp;</div>
+		</div>
+		<div class="row desc-padding border">
+			<div class="col left" style="padding-left: 10px;">Final Price</div>
+			<div class="col right">{{ model.finalPrice() | currency }}</div>
+		</div>
+		<div class="row desc-padding" style="padding-top:10px;" ng-click="paymentAuth();"> <!-- ng-click="showPayment()" -->
+			<div class="col center"> <img src="images/open-pay-btn.png" width="95%" style="margin-left:8px;margin-top:3px;"/></div>
+			<!-- ng-click="submitPayment()" -->
+		</div>
+	</div>
+	
+	<!-- <div class="border-round">
+		<div class="row desc-padding">
+			<div class="col left" style="padding-left: 8px;">Card Discount</div>
+			<div class="col right">-{{ model.cardDiscount | currency }}</div>
+		</div>
+		<div class="row desc-padding border">
+			<div class="col left" style="padding-left: 10px;">Final Price</div>
+			<div class="col right">{{ model.finalPrice | currency }}</div>
+		</div>
+		<div class="row desc-padding" style="padding-top:10px;" ng-click="showPayment()">
+			<div class="col center"> <img src="images/open-pay-btn.png" width="95%" style="margin-left:8px;margin-top:3px;"/></div>
+			ng-click="submitPayment()"
+		</div>
+	</div> -->
+	
+	<div class="row">
+		<div class="col">
+			<button class="grey-btn button-positive buy-btn">Pay with another card</button>
+			<!-- on-tap="submitPayment()" -->
+		</div>
+	</div>
+
+
+</div>
+
+<div ng-class="['popup-confirm', {'hidden': !model.showOpenPay}]">
+	<div class="popup-content grey">
+		<div class="row  desc-padding border">
+			<div class="col left" style="padding-left: 10px;">
+				<img src="images/openpay-icon.png" width="70%;" />
+			</div>
+			<div class="col right cancel-btn-pmt" ng-click="cancel()">Cancel</div>
+		</div>
+		<div class="row  desc-padding border pay-padding">
+			<div class="col left grey-font" style="padding-left: 10px;">Pay with</div>
+			<div class="col right">{{ model.paymentInfo.accountName }} **** {{ model.paymentInfo.accountLast4Digits }}</div>
+		</div>
+		<div class="row desc-padding confirm-height" style="margin-top:10px;">
+			<div class="col">&nbsp;</div>
+			<div class="col left">Subtotal</div>
+			<div class="col right">{{ model.packageRegularTotal | currency }}</div>
+		</div>
+		<div class="row desc-padding confirm-height">
+			<div class="col">&nbsp;</div>
+			<div class="col left">Discount</div>
+			<div class="col right"> -{{ model.cardDiscount | currency }}</div>
+		</div>
+		<div class="row desc-padding confirm-height">
+			<div class="col">&nbsp;</div>
+			<div class="col left">Points - {{ model.applyPointsForPurchase | number }}</div>
+			<div class="col right">-{{ model.applyPointsForPurchase/100 | currency }}</div>
+		</div>
+		<div class="row desc-padding confirm-height">
+			<div class="col">&nbsp;</div>
+			<div class="col left">Sales Tax</div>
+			<div class="col right"> {{ model.salesTax() | currency }}</div>
+		</div>
+		<div class="row desc-padding border pay-padding">
+			<div class="col">&nbsp;</div>
+			<div class="col left bold-text">Payment</div>
+			<div class="col right bold-text">{{ model.payTotal() | currency }}</div>
+		</div>
+		<!--  <div class="row desc-padding border pay-padding">
+			<div class="col">&nbsp;</div>
+			<div class="col left bold-text">One time transaction passcode</div>
+			<div class="col right bold-text"><input type="text" class="persons right points-width" style="float:right;height:30px;-webkit-appearance: none;background:#fff;" value="182097"/></div>
+		</div>-->
+		<div class="row  desc-padding border pay-padding">
+			<div class="col left bold-text" style="padding-left: 10px;">One time passcode</div>
+			<div class="col right"><input type="text" class="persons right points-width" style="float:right;height:30px;-webkit-appearance: none;background:#fff;" ng-model="model.passcode" /></div>
+		</div>
+		
+		<!-- <div class="row  desc-padding border pay-padding">
+			<div class="col left grey-font" style="padding-left: 10px;">&nbsp;</div>
+			<div class="col right">
+				Subtotal&nbsp;&nbsp; {{ model.finalPrice | currency }}<br /> 
+				Card Discount&nbsp;&nbsp;&nbsp; -{{ model.cardDiscount | currency }}<br />
+				Points Used &nbsp;&nbsp;&nbsp;&nbsp; 40,000<br />
+				Sales Tax&nbsp;&nbsp;&nbsp; {{ model.salesTax | currency }}<br /> <span
+					class="bold-text">Pay&nbsp;&nbsp; {{ model.payTotal | currency }}</span>
+			</div>
+		</div> -->
+		<div class="row  desc-padding pay-padding" style="margin-top:5%;">
+			<img src="images/pay-btn.png" width="40%;" class="pay-btn-margin" ng-click=" submitPayment(); "/>
+		</div>
+	</div>
+</div>
+
+</ion-content> </ion-view>

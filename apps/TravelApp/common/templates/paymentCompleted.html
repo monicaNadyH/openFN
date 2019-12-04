@@ -1,0 +1,94 @@
+<!-- <ion-view view-title="Purchase Completed">
+  <ion-content>
+    <h1>Congratulations!!!</h1>
+  </ion-content>
+</ion-view> -->
+
+<ion-view view-title="Purchase Completed" class="greyBackground" scroll="false">
+<ion-content>
+
+
+<div class="row padding20">
+	<div class="col  center bold-text pay-padding">Congratulations!</div>
+</div>
+<div class="description row border">
+	<div class="col center"><!-- Lorem ipsum dolor sit amet, eget iaculis
+		eleifend, velit consectetuer ante nisl elit molestie vitae. --> Your purchase is completed. A confirmation email has been sent to the registered email 
+		address.</div>
+	<button class="red-btn buy-btn"
+		style="margin-top: 15px; margin-bottom: 15px;">View Itinerary</button>
+</div>
+
+<div class="row pay-padding">
+	<div class="col center bold-text">- offers you may also like -</div>
+</div>
+
+<div class="row padding0 padding20">
+	<ion-scroll direction="x" style="width:99%; text-align:center;" zooming="false"> 
+		<div class="row">
+			<div class="col-33">
+				<img src="images/restaurant1.png" class="result-tile" />
+			</div>
+			<div class="col-33">
+				<img src="images/restaurant2.png" class="result-tile" />
+			</div>
+			<div class="col-33">
+				<img src="images/restaurant3.png" class="result-tile" />
+			</div>
+			<div class="col-33">
+				<img src="images/restaurant4.png" class="result-tile" />
+			</div>
+		</div>
+	</ion-scroll>
+	<!-- <div class="col white-tile margin10">
+		<img src="images/placeholder.png" width="100%" class="no-padding" />
+		<div class="row">
+			<p class="small-font2">5 days/4 nights Grand Budapest Hotel</p>
+		</div>
+		<div class="row bottom-padding5 border">
+			<img class="rating-img" src="images/rating-gray.png"
+				class="small-rating" /> <img class="rating-img"
+				src="images/rating-gray.png" class="small-rating" /> <img
+				class="rating-img" src="images/rating-gray.png" class="small-rating" />
+			<img class="rating-img" src="images/rating-gray.png"
+				class="small-rating" />
+		</div>
+		<div class="row">
+			<p class="red-font">$1,200 per Person</p>
+		</div>
+	</div> -->
+	
+	<!-- <ion-scroll direction="x" style="width:95%; text-align:center;" zooming="false"> 
+					<div class="row padding0">
+						<div ng-repeat="searchResult in model.searchResultsArray"  ng-if="searchResult.package.packageId!=model.packageDetail.package.packageId" class="col-33 white-tile margin10" ng-click="showPackageDetail({{ searchResult.package.packageId }})">
+							<img src="images/destination/image{{ searchResult.package.imageId }}-thumb.png" width="100%" class="no-padding" />
+							<div class="row">
+								<p class="small-font2">{{ searchResult.package.packageDescription }} {{ searchResult.locality }}</p>
+							</div>
+							<div class="row bottom-padding5 border">
+								<img ng-repeat="n in getRatingArr( searchResult.package.rating ) track by $index" class="rating-img small-rating" src="images/rating-green.png" /><img 
+								ng-repeat="n in getRatingArr( 5-searchResult.package.rating ) track by $index" class="rating-img small-rating" src="images/rating-gray.png" />
+								
+							</div>
+							<div class="row">
+								<p class="red-font">{{ searchResult.package.cost | currency }} per Person</p>
+							</div>
+						</div>
+					</div>
+	</ion-scroll> -->
+	
+</div>
+<!-- <button class="button button-outline button-positive">
+  Back to browsing
+</button>
+ -->
+ <div class="row">
+<button class="red-btn buy-btn clear-btn"
+style="margin-bottom: 15px;">Back to Browsing</button>
+</div>
+ 
+</ion-content> </ion-view>
+
+<!--
+-->
+

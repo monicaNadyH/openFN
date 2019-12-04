@@ -1,0 +1,49 @@
+
+<!-- STRUCTURED UI -->
+<div ng-if="type!='chat'" ng-repeat="bankAccountWrapper in overview.bankAccounts track by bankAccountWrapper.bank.id" class="long-div">
+	<div class="row short-tile-main long-div-click" style="width:93%;"
+		ng-click="bankAccountWrapper.show=!bankAccountWrapper.show">
+		<div class="col-10">
+				<img src="images/org_logos/{{ bankAccountWrapper.bank.id }}.png" class="ofn-logo" />
+			</div>
+			<div class="col-75 bank-name">{{ bankAccountWrapper.bank.shortName }}</div>
+			<div class="col" style="margin-left:10px;">
+				<img src="images/arrow-down.png" class="arrow-icon-down"
+					ng-if="bankAccountWrapper.show" /> <img src="images/arrow-right.png"
+					class="arrow-icon-right" ng-if="!bankAccountWrapper.show" />
+			</div>
+	</div>
+	<div ng-repeat="account in bankAccountWrapper.accounts track by account.number" style="width:93%;"
+		ng-class="['row', 'short-tile-details', 'animate-show-hide']"
+		ng-show="bankAccountWrapper.show">
+		 <div class="col-67 account-name" style="padding:5px;line-height:1em;">{{ account.label }}</div>
+		 <div class="col right account-name" style="line-height:1em;">{{ account.balance.availableAmount.amount | currency }}</div> 
+	</div>
+
+</div>
+
+<!-- CHAT WIDGET  -->
+<div ng-if="type=='chat'" ng-repeat="bankAccountWrapper in overview.bankAccounts track by bankAccountWrapper.bank.id" style="margin-bottom:-5px;">
+	<div class="row-custom top-space"
+		ng-click="bankAccountWrapper.show=!bankAccountWrapper.show">
+		 <div class="line-border">&nbsp;</div>
+		<div class="row-custom">
+			<div class="column1 left">
+				<img src="images/org_logos/{{ bankAccountWrapper.bank.id }}.png" class="ofn-logo2" />
+			</div>
+			<div class="column11 left bank-name2">{{ bankAccountWrapper.bank.shortName }}</div>
+			
+		</div>
+	</div>
+	
+	<div ng-repeat="account in bankAccountWrapper.accounts track by account.number"
+		ng-class="['row-custom', {'accounts-border': $index!=(bankAccountWrapper.accounts.length-1)} ]"
+		ng-show="bankAccountWrapper.show">
+		 <div class="column1 padding-in-between">&nbsp;</div>
+		 <div class="column11 left padding-in-between" style="font-size:14px;">{{ account.label }}</div>
+		 <div class="column1 padding-in-between">&nbsp;</div>
+		 <div class="column11 left padding-in-between" style="font-size:18px;">{{ account.balance.availableAmount.amount | currency }}</div> 
+	</div>
+	
+
+</div>

@@ -1,0 +1,193 @@
+/*** chat ***/
+.user-chat-ui {
+	background: #AACC7B;
+	color: #fff;
+	font-size: 11pt;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 5px 10px;
+	float: right;
+	text-align: left;
+	height: auto;
+	max-width: 80%;
+}
+
+.watson-chat-ui {
+	background: #E6E7EC;
+	color: #000;
+	font-size: 11pt;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 5px 5px;
+	float: left;
+	text-align: left;
+	height: auto;
+	max-width: 75%;
+}
+
+.watson-img {
+	width: 90%;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
+.bar-footer.item-input-inset {
+	background: #F8F8F8;
+	border: 1px solid #C7C8CC;
+}
+
+.bar.item-input-inset .item-input-wrapper input {
+	width: 80%;
+}
+
+.item-input-wrapper {
+	width: 80%;
+}
+
+.record-button-notactive {
+	background: url('../images/conversation/voice-icon-notactive.png');
+	width: 12%;
+	height: 32px;
+	background-position: center;
+	margin-right: -2%;
+	background-size: 62%;
+	background-repeat: no-repeat;
+}
+/*.record-button-active{background:url('../images/conversation/voice-icon-active.png');width: 15%; height: 32px;background-position: center;margin-right: -2%;background-size: 62%;background-repeat: no-repeat;}*/
+.record-button-active {
+	background: url('../images/conversation/record-btn.gif');
+	width: 12%;
+	height: 32px;
+	background-position: center;
+	margin-right: -2%;
+	background-size: 62%;
+	background-repeat: no-repeat;
+}
+
+.text-button {
+	background: url('../images/conversation/send-icon.png');
+	width: 15%;
+	height: 32px;
+	background-position: center;
+	position: absolute;
+	top: 20%;
+	right: 13%;
+	background-size: 45%;
+	background-repeat: no-repeat;
+}
+
+.select-btn {
+	width: 45%;
+	margin: 10px 10px 0px 10px;
+}
+
+.top-margin {
+	margin-top: 5px;
+}
+
+.left-padding {
+	padding-left: 5px;
+}
+
+.bold-font {
+	font-weight: bold;
+}
+
+.spaces {
+	line-height: 1.2em;
+}
+
+textarea {
+	resize: none;
+	height: 35px;
+	width: 80%;
+	padding: 5px 2px;
+	width: 92%;
+}
+
+.light-grey {
+	background: #FAFAFA;
+}
+
+.flag-icon {
+	width: 100%;
+	margin: 10px 0px 5px 13px;
+}
+
+.bar-footer {
+	height: 55px !important;
+}
+
+.record-button-gif {
+	margin-right: 5%;
+	width: 75%;
+	float: right;
+}
+
+.record-div {
+	width: 12%;
+}
+
+textarea::-webkit-input-placeholder {
+	padding-left: 7px;
+}
+
+.watson-chat-icon {
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100%;
+	background-image: url('../images/chat-icon.png');
+	background-size: 100%;
+}
+
+.custom-icon-btn {
+	background-color: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.right-buttons>* {
+	background-color: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.watson-thinking img {
+	width: 15%;
+	margin: 5px 5px;
+}
+
+a.call-support {
+    display:inline-block;
+}
+a img {
+    display:block;
+}
+
+
+.section-border{border-top:1px solid #707070;width: 97%;margin-left:3px;padding: 0px;height:1px;}
+
+.title-text{font-weight:600;}
+
+.font14{font-size:14px;}
+
+.side-padding0{padding-left:0px;padding-right:0px;}
+
+.font13{font-size:13px;}
+
+.font11{font-size:11px;}
+
+.font10{font-size:10px;}
+
+.padding-top5{padding-top:8px;}
+
+.padding0-0{padding:0px!important;}
+
+.call-support-btn{width:80%; color:#fff; background:#008abf; border-radius:7px;text-align:center; padding-top:7px;height:32px;margin-left:10%;margin-top:5%;}
+
+.policy-number {pointer-events: none;}
+
+.policy-number > a {text-decoration:none; color:inherit;}
+
+.padding-custom-left{padding:0px 0px 0px 15px!important;}
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="OpenFNBankingAPIM">
+        <wb-resource deploy-path="/" source-path="/apps/Travel/common"/>
+        <wb-resource deploy-path="/" source-path="/apps/Travel/iphone"/>
+        <wb-resource deploy-path="/" source-path="/apps/TravelApp/common-orig"/>
+        <wb-resource deploy-path="/" source-path="/apps/TravelApp/iphone"/>
+        <wb-resource deploy-path="/" source-path="/apps/OpenFNRetailBanking/common"/>
+        <wb-resource deploy-path="/" source-path="/apps/OpenFNRetailBanking/iphone"/>
+        <property name="context-root" value="OpenFNBankingAPIM"/>
+    </wb-module>
+</project-modules>

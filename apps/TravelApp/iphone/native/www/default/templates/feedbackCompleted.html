@@ -1,0 +1,26 @@
+<ion-view view-title="" class="greyBackground"> <ion-content>
+
+<ion-refresher pulling-text="Pull to refresh..."
+	on-refresh="refreshPoints()"> </ion-refresher>
+	
+<div class="row padding20">
+	<div class="col center bold-text pay-padding bigger-font">Congratulations!</div>
+</div>
+<div class="description row">
+	<div class="col center bigger-font line padding-feedback">
+		You have earned<span class="blue"> +{{ model.pointsEarned | number }} pts!</span><br /> Your total
+		points {{ model.totalPoints | number }} pts.<br />
+		<br /> Go to ‘My Profile’ to learn more about <br/>your points.
+	</div>
+	
+</div>
+<br/><div class="row">
+	<button class="red-btn buy-btn top150 clear-btn"
+		style="margin-bottom: 15px;">Back to Browsing</button>
+</div>
+
+</ion-content> </ion-view>
+
+<!--
+-->
+

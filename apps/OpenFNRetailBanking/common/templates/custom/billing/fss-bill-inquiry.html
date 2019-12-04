@@ -1,0 +1,158 @@
+<div ng-if="template=='1'" class="padding0 center">
+	<div class="row font14" style="padding-top: 8px;">
+		<div class="col left title-text padding0-0">Policy Balance:</div>
+		<div class="col right padding0-0">${{ billingInfo.BillingInquiryInvoiceDetail.Balance | number }}</div>
+	</div>
+	<div class="section-border">&nbsp;</div>
+	<div class="row font14">
+		<div class="col left title-text padding0-0 padding-top5">Next
+			Invoice</div>
+	</div>
+	<div class="row font13">
+		<div class="col left padding0-0">Invoice Date:</div>
+		<div class="col right padding0-0">{{ dates.plus_two_weeks }}</div>
+	</div>
+	<div class="row font13">
+		<div class="col left padding0-0">Due Date:</div>
+		<div class="col right padding0-0">{{ dates.plus_six_weeks }}</div>
+	</div>
+	<div class="row font13">
+		<div class="col left padding0-0">Amount:</div>
+		<div class="col right padding0-0">${{ billingInfo.BillingInquiryInvoiceDetail.NextInstallmentDueAmount | number }}</div>
+	</div>
+	<div class="section-border">&nbsp;</div>
+	<div class="row font14">
+		<div class="col left title-text padding0-0 padding-top5">Last Transaction</div>
+	</div>
+	<div class="row font13">
+		<div class="col left padding0-0">Amount:</div>
+		<div class="col right padding0-0">${{ billingInfo.BillingInquiryTransactions[0].TransactionAmount | number }}</div>
+	</div>
+	<div class="row font13">
+		<div class="col left padding0-0">Date:</div>
+		<div class="col right padding0-0">{{ (billingInfo.BillingInquiryTransactions[0].TransactionDate != null) ?  (billingInfo.BillingInquiryTransactions[0].TransactionDate | amDateFormat:'MM/DD/YY') : dates.minus_four_weeks }}</div>
+	</div>
+	<div class="row font13">
+		<div class="col left padding0-0">Type:</div>
+		<div class="col right padding0-0">{{ billingInfo.BillingInquiryTransactions[0].TransactionType }}</div>
+	</div>
+	<!-- <div class="row">
+		<div class="col">
+			<div class="call-support-btn">Call Support</div>
+		</div>
+	</div> -->
+</div>
+<div ng-if="template=='2'" class="padding0 center">
+	<div class="row font14">
+		<div class="col left title-text padding0-0 padding-top5">Policy Info</div>
+	</div>
+	<div class="row font13">
+		<div class="col left padding0-0">Policy Number:</div>
+		<div class="col right padding0-0 policy-number">{{ billingInfo.policyNo }}</div>
+	</div>
+	<div class="row font13">
+		<div class="col left padding0-0">Policy Status:</div>
+		<div class="col right padding0-0">{{ billingInfo.policyStatus }}</div>
+	</div>
+	<div class="row font13">
+		<div class="col left padding0-0">Policy Balance:</div>
+		<div class="col right padding0-0">${{ billingInfo.BillingInquiryInvoiceDetail.Balance | number }}</div>
+	</div>
+	<div class="row font13">
+		<div class="col left padding0-0">Effective Dates:</div>
+		<div class="col right padding0-0">{{ dates.policy_start_date }} - {{ dates.policy_end_date }}</div>
+	</div>
+	
+	<div class="section-border">&nbsp;</div>
+	<div class="row font14">
+		<div class="col left title-text padding0-0 padding-top5">Next
+			Invoice</div>
+	</div>
+	<div class="row font13">
+		<div class="col left padding0-0">Invoice Date:</div>
+		<div class="col right padding0-0">{{ dates.plus_two_weeks }}</div>
+	</div>
+	<div class="row font13">
+		<div class="col left padding0-0">Due Date:</div>
+		<div class="col right padding0-0">{{ dates.plus_six_weeks }}</div>
+	</div>
+	<div class="row font13">
+		<div class="col left padding0-0">Amount:</div>
+		<div class="col right padding0-0">${{ billingInfo.BillingInquiryInvoiceDetail.NextInstallmentDueAmount | number }}</div>
+	</div>
+</div>
+
+<div ng-if="template=='3'" class="padding0 center">
+	
+	<div class="row font13">
+	    <div class="col-75 left padding0-0">Original Annual Premium:</div>
+	    <div class="col right padding0-0">${{ (billingInfo.BillingInquiryInvoiceDetail.TotalReceivableAmount*1 - 200) | number }}</div>
+	</div>
+	<div class="row font13">
+	    <div class="col-75 left padding0-0">Additional Premium from Audit:</div>
+	    <div class="col right padding0-0">${{ '200' | number }}</div>
+	</div>
+	<div class="row font13">
+	    <div class="col-75 left padding0-0">New Annual Premium:</div>
+	    <div class="col right padding0-0">${{ billingInfo.BillingInquiryInvoiceDetail.TotalReceivableAmount | number }}</div>
+	</div>
+	
+</div>
+<div ng-if="template=='4'" class="padding0 center">
+	<div class="row font13">
+	    <div class="col-75 left padding0-0">Total Outstanding Balance:</div>
+	    <div class="col right padding0-0">${{ billingInfo.BillingInquiryInvoiceDetail.Balance | number }}</div>
+	</div>
+	<div class="row font13" >
+	    <div class="col-75 left padding0-0">Next Payment Amount Due:</div>
+	    <div class="col right padding0-0">${{ billingInfo.BillingInquiryInvoiceDetail.NextInstallmentDueAmount | number }}</div>
+	</div>
+	<div class="row font13">
+	    <div class="col left padding0-0">Payment Due Date:</div>
+	    <div class="col right padding0-0">{{ dates.plus_six_weeks }}</div>
+	</div>
+</div>
+<div ng-if="template=='5'" class="padding0 center">
+    <div class="row font11">
+        <div class="col center title-text padding0-0 padding-top5">Installment Plan</div>
+        <div class="col center title-text padding0-0 padding-top5">Initial<br/> Deposit</div>
+        <div class="col center title-text padding0-0 padding-top5">Remaining Installments</div>
+    </div>
+    <div class="section-border">&nbsp;</div>
+    <div class="row font11">
+        <div class="col left padding-custom-left">Monthly</div>
+        <div class="col center  padding0-0">15%</div>
+        <div class="col center  padding0-0">11</div>
+    </div>
+    <div class="row font11">
+        <div class="col left padding-custom-left">Quarterly</div>
+        <div class="col center  padding0-0 padding0-0">25%</div>
+        <div class="col center  padding0-0 padding0-0">3</div>
+    </div>
+    <div class="row font11">
+        <div class="col left padding-custom-left">Semi-annual</div>
+        <div class="col center  padding0-0 padding0-0">50%</div>
+        <div class="col center  padding0-0 padding0-0">1</div>
+    </div>
+    <div class="row font11">
+        <div class="col left padding-custom-left">6 Month*</div>
+        <div class="col center  padding0-0 padding0-0">15%</div>
+        <div class="col center  padding0-0 padding0-0">5</div>
+    </div>
+    <div class="row font10 left padding-top5" style="padding-left:19px;">
+        *Annual term policies are billed every alternate month
+    </div>
+    <div class="row font11 left padding-top5" style="padding-left:19px;">
+        <a href="#" ng-click="openBillingFAQ();">View Billing FAQ</a>
+    </div>
+</div>
+<div ng-if="template=='6'" class="padding0 center">
+	<div class="row font13">
+	    <div class="col-75 left padding0-0">Current Plan:</div>
+	    <div class="col right padding0-0">${{ billingInfo.BillingInquiryInvoiceDetail.Balance/3 | number }} Quarterly</div>
+	</div>
+	<div class="row font13" >
+	    <div class="col-75 left padding0-0">Proposed Plan:</div>
+	    <div class="col right padding0-0">${{ billingInfo.BillingInquiryInvoiceDetail.Balance/11 | number }} Monthly</div>
+	</div>
+</div>

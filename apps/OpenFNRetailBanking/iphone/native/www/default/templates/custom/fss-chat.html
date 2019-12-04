@@ -1,0 +1,19 @@
+
+<div class="user-ui-group row-custom" ng-show="showUserInput">
+	<div class="user-chat-ui">{{ response.input.text }}</div>
+</div>
+<div class="watson-group-ui row-custom" ng-show="showWatsonResponse" ng-repeat="text in response.output.text">
+	<div class="watson-icon column1">
+		<img src="images/conversation/watson-icon.png" class="watson-img" />
+	</div>
+	<div class="watson-chat-ui">
+		<div class="row-custom left spaces">
+			<div class="column12">{{ text }}
+				<fss-chat-widget response="response">
+				</fss-chat-widget>
+			</div>
+		</div>
+
+	</div>
+</div>
+

@@ -1,0 +1,60 @@
+
+/* Stylesheet content from css/charts.css in folder common */
+.asset-pie-chart{
+	padding-top: 10%;
+	text-align: center;
+}
+
+.legend {
+    font-size: 12px;
+  }
+
+rect {
+  stroke-width: 2;
+}
+
+.history-line-chart{
+	padding-top: 10%;
+	text-align: center;
+}
+.axis{ 
+	font: 10px sans-serif;
+}
+
+.axis line{
+  stroke: #808080;
+}
+
+.axis path{
+  stroke: #808080;
+}
+
+/* net worth */
+.line {
+  fill: none;
+  stroke: #EFA065;
+  stroke-width: 2px;
+}
+
+/* asset */
+.line1 {
+  fill: none;
+  stroke: #53BB9B;
+  stroke-width: 2px;
+}
+
+/* liability */
+.line2 {
+  fill: none;
+  stroke: #E55E5E;
+  stroke-width: 2px;
+}
+
+.x-text {
+	fill: #808080;
+}
+
+.y-text {
+	fill: #808080;
+}
+

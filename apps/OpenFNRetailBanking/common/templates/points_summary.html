@@ -1,0 +1,61 @@
+<ion-view view-title="OpenPoints Summary" can-swipe-back="false"> 
+<ion-content style="background:#efefef;">
+ <ion-refresher pulling-text="Pull to refresh..."
+	on-refresh="refreshPoints()"> </ion-refresher>  
+	<div class="summary-container">
+		<div class="row-custom points-top-margin white-background shadow">
+			<div class="column4 sub-summary">
+				Member ID<br />
+				<span class="blue">{{ model.memberID }}</span>
+			</div>
+			<div class="column4 sub-summary-center">
+				Points<br />
+				<span class="blue">{{ model.points | number }}</span>
+			</div>
+			<div class="column4 sub-summary">
+				Activities<br />
+				<span class="blue">{{ model.numTransactions }}</span>
+			</div>
+		</div>
+		<div class="row-custom"><div class="column12 space-filler">&nbsp;</div></div>
+		<div class="row-custom  dark-points-header">
+			<div class="row-custom">
+				<div class="column12 font5">Recent activities</div>
+			</div>
+		</div>
+		<div class="row-custom points-list" ng-repeat="activity in model.activitiesArray | limitTo:2 track by $index " ng-class="{'border-bottom-none': $index==1}">
+			<div class="column3">{{ activity.Date | amDateFormat:'MM-DD-YY'}}</div>
+			<div class="column6">{{ activity.Type }}</div>
+			<div class="column3 right" ng-class="model.memberID===activity.FromUserid ? 'red-font-points':'blue'">{{ activity.Amount | number}} pts</div>
+			<div class="column3">&nbsp;</div>
+			<div class="column6" style="font-size:8pt;line-height:1.2em;">{{ activity.description }}</div>
+			<div class="column3">&nbsp;</div>
+		</div>
+		<div class="row-custom points-list shadow"  ng-click="showTransactions()"  style="border-bottom:none;">
+			<div class="column7 right blue">Show More</div>
+			<div class="column5 left"><img src="images/arrow-right.png" class="show-more-arrow"/></div>
+		</div>
+		
+		<div class="row-custom"><div class="column12 space-filler">&nbsp;</div></div>
+		<div class="row-custom  blue-offers shadow">
+			<div class="row-custom">
+				<div class="column12 font5">Deals for you</div>
+			</div>
+		</div>
+		<div class="row-custom  blue-offers-details shadow offer-padding-bottom" ng-repeat="contract in model.contractsArray | limitTo:5">
+			<div class="row-custom">
+				<div class="column12 offers-title">{{ contract.Title }}</div>
+				<div class="column12 font-10 offer-description-small">{{ contract.Description }}</div>
+				<div class="column4"><img src="images/contracts/{{ contract.ID }}.png" class="offer-image"/></div>
+				<div class="column8 font-10">
+				<ul style="padding-left:20px;margin-top:7px;">
+					<li ng-repeat="condition in contract.Conditions" class="offer-bullets">{{ condition }}</li>
+				</ul>
+			</div>
+			</div>
+		</div>
+		
+	</div>
+</ion-content> </ion-view>
+
+

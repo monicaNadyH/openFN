@@ -1,0 +1,41 @@
+<!-- <ion-view view-title="LoginAPIM"> 
+<ion-content>
+<div class="login-content">
+	<form ng-submit="doLogin()">
+		
+	</form>
+</div>
+</ion-content> 
+</ion-view>
+ -->
+ 
+<ion-view hide-nav-bar="true">
+<ion-content class="login-content" scroll="false">
+
+<div>
+	
+	<form name="loginForm" ng-submit="loginForm.$valid && doLogin()" class="login-info">
+	 <div class="padding0" ng-show="loginForm.$submitted">
+	 	<span class="loginErrorFont" ng-show="loginForm.username.$error.required || loginForm.username.$error.email">Please enter a valid email</span>
+	 </div>
+	 <input type="email" name="username" ng-model="data.username" placeholder="email" class="un" required/>
+	 <div class="padding0" ng-show="loginForm.$submitted">
+	 	<span class="loginErrorFont" ng-show="loginForm.password.$error.required">Please enter your password</span>
+	 </div>
+	 <input type="password" name="password" placeholder="password" ng-model="data.password" class="pw" required/>
+	 
+	 <button class="login-btn red-btn" type="submit">log in</button>
+		
+	</form>
+<div class="row login-top-margin">
+	<div class="login-with col">Or Login With</div>
+	<div class="col" style="padding-left:0px;"><img src="images/facebook-icon.png" width="20%" style="margin-right:15px;"/><img src="images/twitter-icon.png" width="20%" style="margin-right:15px;"/><img src="images/google-icon.png" width="20%"/></div>
+</div>
+<div class="row small-print">
+	<div class="col-50">Forgot Password?</div>
+	<div class="col-50 right">Create Account</div>
+</div>
+</div>
+</ion-content> 
+</ion-view>
+ 

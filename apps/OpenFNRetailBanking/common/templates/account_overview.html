@@ -1,0 +1,113 @@
+
+<ion-view view-title="Overview" can-swipe-back="false"> <ion-content
+	class="background-custom"> <ion-refresher
+	pulling-text="Pull to refresh..." on-refresh="fetchOverviewInfo()">
+</ion-refresher>
+<div class="overview-content">
+	<!-- 
+			<div class="account-tabs">
+				<div class="button-bar">
+					<a id="accountsPage"  class="animate" ng-class="['button' , {'custom-left-active': model.showAccounts, 'custom-left': !model.showAccounts}]" 
+						ng-click="showAccounts()">Accounts</a> 
+					<a id="analysisPage"  class="animate" ng-class="['button' , {'custom-right-active': !model.showAccounts, 'custom-right': model.showAccounts}]"
+						ng-click="showAnalysis()">Analysis</a>
+				</div>
+			</div> -->
+	<div class="accounts-page" ng-show="model.showAccounts" >
+		
+			<div class="row tile-fullwidth shadow tile-list-margin"
+				style="height: 70px; padding-top: 1.5%;">
+				<div class="col">
+					<img src="images/{{ getProfileImg() }}.png" class="small-profile" />
+				</div>
+				<div class="col-80 profile-text">
+					{{ getName() }} <br /> {{ getStatus() }}
+				</div>
+
+
+			</div>
+
+			<!-- 
+			<div class="row tile-fullwidth shadow">
+			<div class="col column-padding-left">Your Net Worth</div>
+					<div class="col right column-padding-right">{{ model.customerPosition.netWorth.amount | currency }}</div>
+				</div>
+				<div
+					class="row tile-fullwidth shadow tile-list-margin row-padding-top">
+					<div class="col column-padding-left">Rewards Points</div>
+					<div class="col right column-padding-right">{{ model.customerPosition.totalPoints.amount | number }} <span ng-if="model.customerPosition.totalPoints.amount !=''">pts</span></div>
+				</div> -->
+			<div class="row">
+				<div class="col acct-title">Accounts</div>
+			</div>
+
+			<fss-accounts overview="model.customerPosition" type="'default'"></fss-accounts>
+
+		</div>
+
+
+
+		<div class="analysis-page" ng-if="!model.showAccounts" ng-cloak>
+
+			<div class="row-custom graph-container-margin">
+				<div class="column1" style="width: 4%;">&nbsp;</div>
+				<div class="column10 graph-title shadow"
+					style="width: 92%; font-weight: 500;" ng-if="model.currentSlide==0">Total
+					Asset: {{ model.customerPosition.totalAsset.amount | currency }}</div>
+				<div class="column10 graph-title shadow"
+					style="width: 92%; font-weight: 500;" ng-if="model.currentSlide==1">Total
+					Liability: {{ model.customerPosition.totalLiability.amount |
+					currency }}</div>
+				<div class="column10 graph-title shadow"
+					style="width: 92%; font-weight: 500;" ng-if="model.currentSlide==2">Total
+					Net Worth: {{ model.customerPosition.netWorth.amount | currency }}</div>
+				<div class="column1" style="width: 4%;">&nbsp;</div>
+			</div>
+			<div class="row-custom">
+				<div class="column1 center" style="width: 4%;">&nbsp;</div>
+				<div class="column10 center graph-div shadow" style="width: 92%;">
+					<ion-slide-box show-pager="true" delegate-handle="slidehandle"
+						style="width:98%;height:370px;border:0px solid;"
+						on-slide-changed="analysisSlideChanged($index)"> <ion-slide>
+					<fss-graph chart="pie"
+						data="model.customerPosition.asset.allocations" type="'default'"></fss-graph>
+					</ion-slide> <ion-slide> <fss-graph chart="pie"
+						data="model.customerPosition.liability.allocations"
+						type="'default'"></fss-graph> </ion-slide> <ion-slide> <fss-line-graph
+						data="model.customerPosition.positionHistory" type="'default'"></fss-line-graph>
+					</ion-slide> </ion-slide-box>
+				</div>
+				<div class="column1 center" style="width: 4%;">&nbsp;</div>
+
+			</div>
+
+		</div>
+	</div>
+	
+</ion-content> 
+	<div class="row offer-shadow animate" style="position:absolute; bottom:25px;padding:0px;" ng-show="model.showOffer" ng-click="moreInfo()">
+		<div class="col general" style="background: url('images/offers/overview_page/{{ getOfferImgStr(model.mainOffer.image_url.trim() ? model.mainOffer.image_url.trim() : '') }}.png');background-size: 100% 100%;padding-top:17px;">
+		<div class="x-close" ng-click="model.showOffer = false; $event.stopPropagation();">
+		[x]
+		</div>
+		
+		<div class="row">
+			<div class="col offer-title">{{ model.mainOffer.name }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col offer-desc">{{ model.mainOffer.desc }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col bullets">
+			<ul>
+				<li ng-repeat="text in model.mainOffer.text track by $index">{{ text }}</li>
+			</ul>
+			
+			</div>
+		</div>
+		
+		</div>
+	</div>
+	</ion-view>

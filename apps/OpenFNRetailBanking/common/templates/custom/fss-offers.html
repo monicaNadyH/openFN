@@ -1,0 +1,34 @@
+
+<div class="row-custom offers-div" style="margin-top:3%;">
+	<div class="column12 center general" 
+		style="background: url('images/offers/{{ getOfferImgStr(mainOffer.image_url.trim() ? mainOffer.image_url.trim() : '') }}.png'); background-size: 100%; background-repeat: no-repeat;" >
+		<div class="row-custom offer-content">
+			<div class="column12 offer-title">{{ mainOffer.name }}</div>
+			<div class="column12 offer-desc">{{ mainOffer.desc }}</div>
+			<div class="column12 bullets">
+				<ul>
+					<li ng-repeat="text in mainOffer.text track by $index">{{ text }}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+		<img src="images/offers/decline-icon.png" class="offer-btns" ng-click="decline()"/>
+	</div>
+	<div class="col call-btn">
+		<!-- <img src="images/offers/call-icon.png" class="offer-btns" ng-click="callSupport()"/> -->
+		   <a class="call-support" ng-href="tel: 18442305026" ng-click="callSupport()">
+		    	<img class="offer-btns" src="images/offers/call-icon.png">
+		   </a>
+	</div>
+	<div class="col remind-btn">
+		<img src="images/offers/remind-icon.png" class="offer-btns" ng-click="snooze()"/>
+	</div>
+	
+	<div class="col accept-btn">
+		<img src="images/offers/accept-icon.png" class="offer-btns" ng-click="moreInfo()"/>
+	</div>
+</div>

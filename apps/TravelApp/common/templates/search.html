@@ -1,0 +1,104 @@
+<ion-view hide-back-button="true" view-title="Search" class="greyBackground"> <ion-content>
+<div class="row purple" ng-show="model.showPopup">
+
+	<div class="col col-80 description white-font padding-side10">Your bank OpenFN has special travel packages for you based on the criteria below.</div>
+	<div class="col-15">
+		<img src="images/close-icon.png" width="30%" style="float: right;" ng-click="model.showPopup=false"/>
+	</div>
+</div>
+<div class="search-content">
+	<div class="search-box">
+		<label class="item-input"> <textarea
+				placeholder="Type your question" ng-model="model.question"></textarea>
+		</label>
+		<!--  <div class="clear-btn">Clear</div> -->
+	</div>
+	<hr class="green-line" />
+	<div class="search-btn-container">
+		<img class="search-btn search-btn-margin" src="images/speak-icon.png" />
+		<img class="search-btn" src="images/answer-icon.png"  ng-click="search()" /> 
+	</div>
+	<!-- <ion-list>
+      <ion-item ng-repeat="package in packageList">
+        {{package.title}}
+   </ion-item>
+    </ion-list> -->
+	
+	<!-- <ul ng-repeat="(key, value) in searchResultsArray | groupBy: 'city'">
+  		City name: {{ key }}
+  		<li ng-repeat="searchResult in value">
+    		locality: {{ searchResult.locality }}
+  		</li>
+	</ul>
+	 -->
+	
+	
+<ul ng-repeat="(key, value) in searchResultsArray | groupBy: 'city'">
+  
+	<li class="list border bottom-padding20 top-border">
+		<div class="item divider item-thumbnail-left no-border border">
+			<img style="width:50%;" src="images/city/image{{ value[0].cityDetail.imageId }}-round.png" />
+			<h2 class="location-title location-title-padding">{{ key }}, {{ value[0].country }}</h2>
+			<div class="row">
+				<div class="rating col left">
+					<img ng-repeat="n in getRatingArr( value[0].cityDetail.rating ) track by $index" class="rating-img" src="images/rating-green.png" /><img 
+					ng-repeat="n in getRatingArr( 5-value[0].cityDetail.rating ) track by $index" class="rating-img" src="images/rating-gray.png" />
+					
+				</div>
+				<div class="rating-desc col rating-border-left margin-rating-text">{{ value[0].cityDetail.rating }} stars, {{ value[0].cityDetail.numReviews }} ratings</div>
+			</div>
+			<div class="row">
+				<!-- <ion-scroll direction="y" style="height:145px;">
+					<div class="description item-text-wrap" style="height:2000px;" >
+						<p ng-repeat="searchResult in value" class="item-text-wrap" > <b>{{ searchResult.locality }}</b> - {{ searchResult.title }} <br/>{{ searchResult.description }}<br/></p>
+						
+					</div>
+				</ion-scroll>-->
+				<div class="description" ng-init="limit=130">{{ value[0].cityDetail.description | limitTo:limit }}<a ng-show="limit<200" ng-click="limit=1500">... <span class="read-more">More</span></a>
+				</div>
+			</div>
+		</div>
+		<div class="row left0">
+			<div class="col small-font">Packages within this destination:</div>
+		</div>
+		
+		<div class="row padding0" style="width:98%; overflow: scroll; min-height:188px;"> 
+				<ion-scroll ng-if="value.length>=3" direction="x" style="width:99%; text-align:center;" zooming="false"> 
+					<div class="row padding0">
+						<div ng-repeat="searchResult in value"  class="col-33 white-tile margin10" ng-click="showPackageDetail({{ searchResult.package.packageId }})">
+							<img src="images/destination/image{{ searchResult.package.imageId }}-thumb.png" width="100%" class="no-padding" />
+							<div class="row same-height">
+								<p class="small-font2">{{ searchResult.package.packageDescription }} <!-- {{ searchResult.locality }} --></p>
+							</div>
+							<div class="row bottom-padding5 border stars">
+								<img ng-repeat="n in getRatingArr( searchResult.package.rating ) track by $index" class="rating-img" src="images/rating-green.png" /><img 
+								ng-repeat="n in getRatingArr( 5-searchResult.package.rating ) track by $index" class="rating-img" src="images/rating-gray.png" />
+								
+							</div>
+							<div class="row">
+								<p class="red-font">{{ searchResult.package.cost | currency }} per Person</p>
+							</div>
+						</div>
+					</div>
+				</ion-scroll>  
+				<div ng-if="value.length<3" class="row padding0">
+						<div ng-repeat="searchResult in value"  class="col-33 white-tile margin10" ng-click="showPackageDetail({{ searchResult.package.packageId }})">
+							<img src="images/destination/image{{ searchResult.package.imageId }}-thumb.png" width="100%" class="no-padding" />
+							<div class="row same-height">
+								<p class="small-font2">{{ searchResult.package.packageDescription }} {{ searchResult.locality }}</p>
+							</div>
+							<div class="row bottom-padding5 border stars">
+								<img ng-repeat="n in getRatingArr( searchResult.package.rating ) track by $index" class="rating-img" src="images/rating-green.png" /><img 
+								ng-repeat="n in getRatingArr( 5-searchResult.package.rating ) track by $index" class="rating-img" src="images/rating-gray.png" />
+								
+							</div>
+							<div class="row">
+								<p class="red-font">{{ searchResult.package.cost | currency }} per Person</p>
+							</div>
+						</div>
+				</div>
+		</div> 
+	</li>
+</ul>
+</div>
+</ion-content> </ion-view>

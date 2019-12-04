@@ -1,0 +1,41 @@
+<ion-view view-title="Points Activity" can-swipe-back="true"> 
+<ion-content style="background:#efefef;">
+<ion-refresher pulling-text="Pull to refresh..."
+	on-refresh="refreshPoints()"> </ion-refresher>
+	<div class="summary-container">
+		<div class="row-custom points-top-margin white-background shadow">
+			<div class="column4 sub-summary">
+				Member ID<br />
+				<span class="blue">{{ model.memberID }}</span>
+			</div>
+			<div class="column4 sub-summary-center">
+				Points<br />
+				<span class="blue">{{ model.points | number }}</span>
+			</div>
+			<div class="column4 sub-summary">
+				Activities<br />
+				<span class="blue">{{ model.numTransactions }}</span>
+			</div>
+		</div>
+		<div class="row-custom"><div class="column12 space-filler">&nbsp;</div></div>
+		<div class="row-custom  dark-points-header">
+			<div class="row-custom">
+				<div class="column12 bold-text">Recent activities</div>
+			</div>
+		</div>
+		
+		<div class="row-custom points-list" ng-repeat="activity in model.activitiesArray | limitTo:27">
+		
+			<div class="column3">{{ activity.Date | amDateFormat:'MM-DD-YY'}}</div>
+			<div class="column6">{{ activity.Type }}</div> 
+			<div class="column3 right" ng-class="model.memberID===activity.FromUserid ? 'red-font-points':'blue'">{{ activity.Amount | number}}</div>
+			<div class="column3">&nbsp;</div>
+			<div class="column6" style="font-size:8pt;line-height:1.2em;">{{ activity.description }}</div>
+			<div class="column3">&nbsp;</div>
+		
+		</div>
+		
+	</div>
+</ion-content> </ion-view>
+
+

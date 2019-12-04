@@ -1,0 +1,35 @@
+<ion-view  id="chatContainer" view-title="Conversation"> <!-- ng-controller="ConversationCtrl" --> 
+	<ion-header-bar class="custom-header">
+		<h1 class="title">Conversation {{ model.test }}</h1>
+		<button class="button button-clear button-dark" ng-click="hideConversation()">Done
+		</button>
+	</ion-header-bar> 
+	<ion-pane> 
+		<ion-content>
+			<div id="chatContainer">
+				<div ng-repeat="response in model.conversation.responses">
+					<fss-chat response="response"></fss-chat>
+				</div>
+				<div ng-show="model.conversation.waitingForResponse" class="watson-thinking">
+					<img src="images/conversation/watson-thinking.gif">
+				</div>
+				<div style="height:3%;">&nbsp;
+				</div>
+			</div>
+		</ion-content> 
+		<ion-footer-bar keyboard-attach class="item-input-inset">
+			<label class="item-input-wrapper"> <textarea rows="2" style="font-size:10pt;padding-top:7px;"
+					id="textInputArea" placeholder="Write Here" ng-model="model.conversation.input"
+					ng-keyup="$event.keyCode == 13 && sendMessage()"
+					on-return="sendMessage(); closeKeyboard()" on-focus="inputUp()"
+					on-blur="inputDown()">
+			 	</textarea>
+			</label>
+			<div ng-class="{'record-button-notactive':!model.conversation.recordingInProgress, 'record-button-active':model.conversation.recordingInProgress}" 
+				 ng-click="toggleRecord()"></div>
+			<div class="text-button" ng-click="sendMessage()"></div>
+		</ion-footer-bar> 
+	</ion-pane> 
+</ion-view>
+		
+		

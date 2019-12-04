@@ -1,0 +1,24 @@
+
+<div ng-repeat="investment in investments">
+<div class="line-border2" style="margin-top:5px;">&nbsp;</div>
+<div class="row-custom bank-name">
+<div class="column6 left ">{{ investment.symbol }}</div>
+<div class="column6 right">{{ investment.marketValue.amount | currency }}</div>
+</div>
+<div class="row-custom" style="margin-top:3px;">
+<div class="column12 left" style="font-size:12px;margin-bottom:5px;">{{ investment.description }}</div>
+</div>
+	
+	
+</div>
+
+	<!-- Price = {{ investment.price.amount }} <br/>
+	Qty = {{ investment.quantity | number }} <br/>
+	
+	 
+	 
+	 Symbol = {{ investment.symbol }} <br/>
+	Market Value = {{ investment.marketValue.amount | currency }} <br/>
+	Description {{ investment.description }} <br/>
+	
+	 -->

@@ -1,0 +1,32 @@
+<ion-view view-title="Restaurants"> <ion-content
+	class="greyBackground">
+	<ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+  	</ion-refresher>
+<div class="row">
+	<div class="col small-font">
+		<!--  Results for <span class="bold-text italic underline">restaurants</span> -->
+		Restaurants in your area 
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+		<img src="images/sort-by.png" class="sort-by" />
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+		<img src="images/restaurant1.png" class="result-tile" />
+	</div>
+	<div class="col">
+		<img src="images/restaurant2.png" class="result-tile" />
+	</div>
+</div>
+<div class="row" style="margin-bottom:20px;">
+	<div class="col">
+		<img src="images/restaurant3.png" class="result-tile" />
+	</div>
+	<div class="col">
+		<img src="images/restaurant4.png" class="result-tile" />
+	</div>
+</div>
+</ion-content> </ion-view>

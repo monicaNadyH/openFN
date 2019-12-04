@@ -1,0 +1,54 @@
+<ion-side-menus enable-menu-with-back-views="true" id="menuContainer">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable custom-header">
+      <!-- <ion-nav-back-button>
+      </ion-nav-back-button> -->
+	  
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+      <!-- <ion-nav-buttons side="right" class="custom-active">
+      	<button class="button watson-chat-icon custom-icon-btn" style="padding:0px 10px!important;margin-right:4px;margin-top:2px;" ng-click="showConversation()"></button>
+      </ion-nav-buttons> -->
+    </ion-nav-bar>
+    
+    <ion-nav-view name="menuContent"></ion-nav-view> 
+	
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left"  class="custom-color">
+    <ion-header-bar class="bar-stable" ng-click="scheduleLocalNotification()">  
+   	</ion-header-bar>
+    
+    <ion-content>
+      <ion-list>
+        <ion-item menu-close href="#/login" class="custom-menu-color">
+          Logout
+        </ion-item>
+        <ion-item menu-close href="#/app/conversation">
+          Conversation
+        </ion-item>
+        <ion-item menu-close href="#/app/notifications">
+          Settings
+        </ion-item>
+        <!-- MAJESCO update -->
+        <!-- <ion-item menu-close href="#/app/tabs/tab0">
+          Overview
+        </ion-item>
+        <ion-item menu-close href="#/app/tabs/tab1">
+          Rewards
+        </ion-item>
+        <ion-item menu-close href="#/app/tabs/tab2">
+          Locations
+        </ion-item>
+        <ion-item menu-close href="#/app/tabs/tab3">
+          Deposit
+        </ion-item>
+        <ion-item menu-close href="#/app/tabs/tab4">
+          Payments
+        </ion-item> -->
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

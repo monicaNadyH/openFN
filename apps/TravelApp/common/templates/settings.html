@@ -1,0 +1,16 @@
+<ion-view hide-back-button="true" view-title="Settings" class="greyBackground"> 
+<ion-content>
+	<div class="list">
+        
+        <div class="item item-divider"> 
+          Offline Access
+        </div>
+        <ion-toggle ng-model="watsonSearchService.checked"
+                    ng-change="watsonSearchServiceChange()">
+          Watson Search Service
+        </ion-toggle>
+        
+    </div>
+
+</ion-content>
+</ion-view>

@@ -1,0 +1,39 @@
+<ion-view view-title="" can-swipe-back="true"> 
+	<ion-content>
+		<div class="">
+			<div class="list">
+			  <label class="item item-input">
+			    <!-- <input type="text" placeholder="Policy Number" ng-model="model.demoerId" > -->
+			    <input type="text" placeholder="Policy Number" ng-model="model.policyNum" >
+			  </label>
+			  <label class="item item-input ">
+			    <input type="text" placeholder="Effective Date yyyy-mm-dd" ng-model="model.policyEffectiveDate" >
+			  </label>
+			  <li class="item item-toggle">
+			     Simulated Mode
+			     <label class="toggle toggle-positive">
+			       <input type="checkbox" ng-model="model.simulatedMode">
+			       <div class="track">
+			         <div class="handle"></div>
+			       </div>
+			     </label>
+			  </li>
+			</div>
+			
+			<div class="center">
+				<button class="buy-btn green-btn-locator"
+					style="margin-left: 0;" ng-click="updatePolicyNumber()">Update</button>
+			</div>	
+			<!-- <button class="buy-btn green-btn-locator"
+				style="margin-left: 0;" ng-click="setupNotifications('register')">Register</button>	
+			
+			<br/>
+			<br/>
+			<button class="buy-btn green-btn-locator"
+				style="margin-left: 0;" ng-click="setupNotifications('deregister')">Deregister</button>	 -->
+		</div>
+	</ion-content> 
+
+</ion-view>
+
+

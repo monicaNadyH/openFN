@@ -1,0 +1,96 @@
+.row-custom {
+	position: relative;
+}
+
+.row-custom:after {
+	content: "";
+	display: table;
+	clear: both;
+	width: 100%;
+}
+
+.row-custom .column12 {
+	width: 100%;
+	position: relative;
+}
+
+.row-custom .column11 {
+	width: 91.66%;
+	position: relative;
+	float: left;
+}
+
+.row-custom .column10 {
+	width: 83.33%;
+	position: relative;
+	float: left;
+}
+
+.row-custom .column9 {
+	width: 75%;
+	position: relative;
+	float: left;
+}
+
+.row-custom .column8 {
+	width: 66.66%;
+	position: relative;
+	float: left;
+}
+
+.row-custom .column7 {
+	width: 58.33%;
+	position: relative;
+	float: left;
+}
+
+.row-custom .column6 {
+	width: 50%;
+	position: relative;
+	float: left;
+}
+
+.row-custom .column5 {
+	width: 41.66%;
+	position: relative;
+	float: left;
+}
+
+.row-custom .column4 {
+	width: 33.33%;
+	position: relative;
+	float: left;
+}
+
+.row-custom .column3 {
+	width: 25%;
+	position: relative;
+	float: left;
+}
+
+.row-custom .column2 {
+	width: 16.6%;
+	position: relative;
+	float: left;
+}
+
+.row-custom .column1 {
+	width: 8.33%;
+	position: relative;
+	float: left;
+}
+.row-custom .column80 {
+	width: 80%;
+	position: relative;
+	float: left;
+}
+.row-custom .column20 {
+	width: 20%;
+	position: relative;
+	float: left;
+}
+.row-custom .column30 {
+	width: 30%;
+	position: relative;
+	float: left;
+}

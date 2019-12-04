@@ -1,0 +1,140 @@
+<ion-view view-title="Package" class="greyBackground"> 
+<ion-content>
+<div class="grey">
+	<div class="overlay-info">
+		<div class="row1">
+			<div class="column1">&nbsp;</div>
+			<div class="column10 center white-font center-column textshadow"
+				style="">
+				<!-- {{ model.packageDetail.city }}, {{ model.packageDetail.country }} -->{{ model.packageDetail.package.packageDescription }}<br /> 
+				{{ model.packageDetail.package.detail }}
+			</div>
+			<div class="column1">&nbsp;</div>
+		</div>
+		<div class="row1 star-rating-margin">
+			<div class="column1">&nbsp;</div>
+			<div class="column10 center">
+						<img ng-repeat="n in getRatingArr( model.packageDetail.package.rating ) track by $index" class="star-rating-small" src="images/rating-green1.png" /><img 
+								ng-repeat="n in getRatingArr( 5-model.packageDetail.package.rating ) track by $index" class="star-rating-small" src="images/rating-white.png" />
+				
+			</div>
+			<div class="column1">&nbsp;</div>
+		</div>
+	</div>
+
+<!-- 	<div class="overlay-info">
+		<div class="row center">
+			<div class="col center white-font" style="-webkit-text-stroke:0.3px #000;">
+				{{ model.packageDetail.city }}, {{ model.packageDetail.country }} {{ model.packageDetail.locality }} <br /> {{ model.packageDetail.package.detail }}
+			</div>
+		</div>
+		<div class="row center" style="margin-left:12px; width:80%;">
+			<div class="col m-p0">
+				<img class="rating-img small-rating" src="images/rating-green1.png"/> 
+				</div>
+			<div class="col m-p0">
+				<img class="rating-img small-rating" src="images/rating-green1.png"/> </div>
+			<div class="col m-p0">
+				<img class="rating-img small-rating" src="images/rating-green1.png"/> </div>
+			<div class="col m-p0">
+				<img class="rating-img small-rating" src="images/rating-green1.png"/></div>
+			<div class="col m-p0">
+				<img class="rating-img small-rating" src="images/rating-white.png"/></div>
+			</div>
+		</div>
+ -->
+ 
+ </div> 
+
+
+	<!-- <img src="images/img-filler.png" width="100%" />  -->
+	<img src="images/destination/image{{ model.packageDetail.package.imageId }}.png" width="100%" />
+	<div class="row  bottom-border list padding-side list-top-padding">
+		<div class="col padding0">
+			<div class="description bold-text desc-padding">Description</div>
+			<div class="description less-height desc-padding desc-bottom-padding">{{ model.packageDetail.description | limitTo:model.descriptionNumLimit }}  <a ng-show="model.descriptionNumLimit<400" ng-click="model.descriptionNumLimit=1500">... <span class="read-more">More</span></a> </div> 
+			
+		</div>
+	</div>
+	
+	<div class="row bottom-border list-padding list-top-padding">
+		<div class="col description bold-text padding-side2">Review and
+			Ratings</div>
+		<div class="col right right-padding">
+			<img src="images/arrow-down.png" width="10%" />
+		</div>
+	</div>
+	<div class="row bottom-border list-padding list-top-padding">
+		<div class="col description bold-text padding-side2">Travelers
+			gallery</div>
+		<div class="col right right-padding">
+			<img src="images/arrow-down.png" width="10%" />
+		</div>
+	</div>
+	<div class="row bottom-border list-padding list-top-padding">
+		<div class="col description bold-text padding-side2">Dates
+			Available</div>
+		<div class="col right right-padding">
+			<img src="images/arrow-down.png" width="10%" />
+		</div>
+	</div>
+	<div class="row list-padding list-top-padding">
+		<div class="col description bold-text padding-side2">Total Price
+		</div>
+		<div class="col description right bold-text right-padding">Persons</div>
+	</div>
+	<div class="row1" style="margin-bottom:25px;">
+		<div class="column6 paddingtop8 padding-side2 font14">{{ model.packageDetail.package.cost*model.numPersons | currency }}</div>
+		<div class="column6" style="padding-left:37%;"><input type="text" style="-webkit-appearance:none;" class="persons right more-center" ng-model="model.numPersons"/></div>
+	</div>
+	<!-- <button class="red-btn button-positive buy-btn" on-tap="test()" ui-sref="app.buyPackage({packageId:{{$stateParams.packageId}}, numPersons: {{ model.numPersons }}})">Buy
+		this package</button> -->
+		<button class="red-btn button-positive buy-btn" ng-click="buyPackage()">Buy this package</button>
+	<div class="row offer-img-margin" ng-click="buyPackage()">
+		<!-- <a ui-sref="app.buyPackage({packageId:{{$stateParams.packageId}}})"> --><img src="images/ofn-cc-offer.png" width="100%"/></a>
+	</div>
+	<div class="row">
+		<div class="col small-font bold-text"><!--  Packages within this destination: -->Other recommended packages</div>
+	</div>
+	<div class="row padding0 bottom-margin10" style="padding-bottom:15px; width:98%; overflow: scroll;">
+		<!--  <div class="col white-tile margin10">
+
+			<img src="images/placeholder.png" width="100%" class="no-padding" />
+			<div class="row">
+				<p class="small-font2">5 days/4 nights Grand Budapest Hotel</p>
+			</div>
+			<div class="row bottom-padding5 border">
+				<img class="rating-img" src="images/rating-gray.png"
+					class="small-rating" /> <img class="rating-img"
+					src="images/rating-gray.png" class="small-rating" /> <img
+					class="rating-img" src="images/rating-gray.png"
+					class="small-rating" /> <img class="rating-img"
+					src="images/rating-gray.png" class="small-rating" />
+			</div>
+			<div class="row">
+				<p class="red-font">$1,200 per Person</p>
+			</div>
+		</div>
+		-->
+		<ion-scroll direction="x" style="width:99%; text-align:center;" zooming="false"> 
+					<div class="row padding0">
+						<div ng-repeat="searchResult in model.searchResultsArray"  ng-if="searchResult.package.packageId!=model.packageDetail.package.packageId" class="col-33 white-tile margin10" ng-click="showPackageDetail({{ searchResult.package.packageId }})">
+							<img src="images/destination/image{{ searchResult.package.imageId }}-thumb.png" width="100%" class="no-padding" />
+							<div class="row same-height">
+								<p class="small-font2">{{ searchResult.package.packageDescription }} <!-- {{ searchResult.locality }} --></p>
+							</div>
+							<div class="row bottom-padding5 border stars">
+								<img ng-repeat="n in getRatingArr( searchResult.package.rating ) track by $index" class="rating-img" src="images/rating-green.png" /><img 
+								ng-repeat="n in getRatingArr( 5-searchResult.package.rating ) track by $index" class="rating-img" src="images/rating-gray.png" />
+								
+							</div>
+							<div class="row">
+								<p class="red-font">{{ searchResult.package.cost | currency }} per Person</p>
+							</div>
+						</div>
+					</div>
+		</ion-scroll>
+	</div>
+
+</div>
+</ion-content> </ion-view>

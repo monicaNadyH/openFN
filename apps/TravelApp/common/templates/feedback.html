@@ -1,0 +1,123 @@
+<ion-view view-title="Feedback" > <ion-content>
+<div class="row purple">
+
+	<div class="col col-75 description white-font padding-side10">Rate
+		your recent trip to get 2,500 gift points on your credit card account.</div>
+
+
+	<div class="col-15">
+		<img src="images/close-icon.png" width="30%" style="float: right;" />
+	</div>
+</div>
+<div class="row border greyBackground"
+	style="padding-top: 20px; padding-bottom: 20px; font-size: 12pt;">
+	<div class="col center bold-text">
+		Rate Your Package:<span class="blue"> +1000 pts!!</span>
+	</div>
+</div>
+
+<div class="row white-background mbottom15">
+	<div class="col left10">1. Overall satisfaction with the package</div>
+</div>
+<div class="row small-smiley mleft10">
+	<div class="col five-ratings" ng-class="model.overallSat==1 ? 'rating1-active':'rating1'" ng-click="model.overallSat=1"></div>
+	<div class="col five-ratings" ng-class="model.overallSat==2 ? 'rating2-active':'rating2'" ng-click="model.overallSat=2"></div>
+	<div class="col five-ratings" ng-class="model.overallSat==3 ? 'rating3-active':'rating3'" ng-click="model.overallSat=3"></div>
+	<div class="col five-ratings" ng-class="model.overallSat==4 ? 'rating4-active':'rating4'" ng-click="model.overallSat=4"></div>
+	<div class="col five-ratings" ng-class="model.overallSat==5 ? 'rating5-active':'rating5'" ng-click="model.overallSat=5"></div>
+</div>
+
+<div class="row white-background mbottom15">
+	<div class="col left10">2. Likeliness of recommending this
+		package to your friends</div>
+</div>
+<div class="row mleft30 big-smiley">
+	<div class="col" ng-class="model.recommendFriends==1 ? 'not-likely-active':'not-likely'" ng-click="model.recommendFriends=1"></div>
+	<div class="col" ng-class="model.recommendFriends==2 ? 'likely-active':'likely'" ng-click="model.recommendFriends=2"></div>
+	<div class="col" ng-class="model.recommendFriends==3 ? 'most-likely-active':'most-likely'" ng-click="model.recommendFriends=3"></div>
+</div>
+
+<div class="row white-background mbottom15">
+	<div class="col left10">3. Likeliness of your taking this or
+		similar trip again?</div>
+</div>
+<div class="row mleft30 big-smiley">
+	<div class="col not-likely" ng-class="model.similarTrip==1 ? 'not-likely-active':'not-likely'" ng-click="model.similarTrip=1"></div>
+	<div class="col likely" ng-class="model.similarTrip==2 ? 'likely-active':'likely'" ng-click="model.similarTrip=2"></div>
+	<div class="col most-likely" ng-class="model.similarTrip==3 ? 'most-likely-active':'most-likely'" ng-click="model.similarTrip=3"></div>
+</div>
+<div class="row white-background mbottom15">
+	<div class="col left10">4. Customer Service</div>
+</div>
+<div class="row small-smiley mleft10">
+	<div class="col five-ratings rating1" ng-class="model.customerService==1 ? 'rating1-active':'rating1'" ng-click="model.customerService=1"></div>
+	<div class="col five-ratings rating2" ng-class="model.customerService==2 ? 'rating2-active':'rating2'" ng-click="model.customerService=2"></div>
+	<div class="col five-ratings rating3" ng-class="model.customerService==3 ? 'rating3-active':'rating3'" ng-click="model.customerService=3"></div>
+	<div class="col five-ratings rating4" ng-class="model.customerService==4 ? 'rating4-active':'rating4'" ng-click="model.customerService=4"></div>
+	<div class="col five-ratings rating5" ng-class="model.customerService==5 ? 'rating5-active':'rating5'" ng-click="model.customerService=5"></div>
+</div>
+<div class="row border"
+	style="padding-top: 20px; padding-bottom: 20px; font-size: 12pt;">
+	<div class="col center">
+		<span class="underline">+ add a review</span><span class="blue">
+			(200 pts)</span>
+	</div>
+</div>
+<div class="row border greyBackground"
+	style="padding-top: 20px; padding-bottom: 20px; font-size: 12pt;">
+	<div class="col center bold-text">
+		Other Purchases:<span class="blue"> +400 pts!!</span>
+	</div>
+</div>
+<div class="row white-background mbottom15">
+	<div class="col center">Grazzi Cafe</div>
+</div>
+<div class="row small-smiley mleft10">
+	<div class="col five-ratings rating1" ng-class="model.purchases.restaurant1==1 ? 'rating1-active':'rating1'" ng-click="model.purchases.restaurant1=1"></div>
+	<div class="col five-ratings rating2" ng-class="model.purchases.restaurant1==2 ? 'rating2-active':'rating2'" ng-click="model.purchases.restaurant1=2"></div>
+	<div class="col five-ratings rating3" ng-class="model.purchases.restaurant1==3 ? 'rating3-active':'rating3'" ng-click="model.purchases.restaurant1=3"></div>
+	<div class="col five-ratings rating4" ng-class="model.purchases.restaurant1==4 ? 'rating4-active':'rating4'" ng-click="model.purchases.restaurant1=4"></div>
+	<div class="col five-ratings rating5" ng-class="model.purchases.restaurant1==5 ? 'rating5-active':'rating5'" ng-click="model.purchases.restaurant1=5"></div>
+</div>
+<div class="row white-background mbottom15">
+	<div class="col center">Hard Rock Cafe</div>
+</div>
+<div class="row small-smiley mleft10">
+	<div class="col five-ratings rating1" ng-class="model.purchases.restaurant2==1 ? 'rating1-active':'rating1'" ng-click="model.purchases.restaurant2=1"></div>
+	<div class="col five-ratings rating2" ng-class="model.purchases.restaurant2==2 ? 'rating2-active':'rating2'" ng-click="model.purchases.restaurant2=2"></div>
+	<div class="col five-ratings rating3" ng-class="model.purchases.restaurant2==3 ? 'rating3-active':'rating3'" ng-click="model.purchases.restaurant2=3"></div>
+	<div class="col five-ratings rating4" ng-class="model.purchases.restaurant2==4 ? 'rating4-active':'rating4'" ng-click="model.purchases.restaurant2=4"></div>
+	<div class="col five-ratings rating5" ng-class="model.purchases.restaurant2==5 ? 'rating5-active':'rating5'" ng-click="model.purchases.restaurant2=5"></div>
+</div>
+<div class="row white-background mbottom15">
+	<div class="col center">Sheraton Ballroom</div>
+</div>
+<div class="row small-smiley mleft10">
+	<div class="col five-ratings rating1" ng-class="model.purchases.restaurant3==1 ? 'rating1-active':'rating1'" ng-click="model.purchases.restaurant3=1"></div>
+	<div class="col five-ratings rating2" ng-class="model.purchases.restaurant3==2 ? 'rating2-active':'rating2'" ng-click="model.purchases.restaurant3=2"></div>
+	<div class="col five-ratings rating3" ng-class="model.purchases.restaurant3==3 ? 'rating3-active':'rating3'" ng-click="model.purchases.restaurant3=3"></div>
+	<div class="col five-ratings rating4" ng-class="model.purchases.restaurant3==4 ? 'rating4-active':'rating4'" ng-click="model.purchases.restaurant3=4"></div>
+	<div class="col five-ratings rating5" ng-class="model.purchases.restaurant3==5 ? 'rating5-active':'rating5'" ng-click="model.purchases.restaurant3=5"></div>
+</div>
+<div class="row white-background mbottom15">
+	<div class="col center">Bike and Mike</div>
+</div>
+<div class="row small-smiley mleft10">
+	<div class="col five-ratings rating1" ng-class="model.purchases.restaurant4==1 ? 'rating1-active':'rating1'" ng-click="model.purchases.restaurant4=1"></div>
+	<div class="col five-ratings rating2" ng-class="model.purchases.restaurant4==2 ? 'rating2-active':'rating2'" ng-click="model.purchases.restaurant4=2"></div>
+	<div class="col five-ratings rating3" ng-class="model.purchases.restaurant4==3 ? 'rating3-active':'rating3'" ng-click="model.purchases.restaurant4=3"></div>
+	<div class="col five-ratings rating4" ng-class="model.purchases.restaurant4==4 ? 'rating4-active':'rating4'" ng-click="model.purchases.restaurant4=4"></div>
+	<div class="col five-ratings rating5" ng-class="model.purchases.restaurant4==5 ? 'rating5-active':'rating5'" ng-click="model.purchases.restaurant4=5"></div>
+</div>
+<div class="row border greyBackground"
+	style="padding-top: 20px; padding-bottom: 20px; font-size: 12pt;">
+	<div class="col center">
+		<!-- <button class="red-btn button-positive buy-btn"
+			style="margin-left: 0px;" ui-sref="app.feedbackCompleted()">Finish Rating</button>
+			 -->
+			 <button class="red-btn button-positive buy-btn"
+					style="margin-left: 0px;" ng-click="submitFeedback()">Finish Rating</button>
+	</div>
+</div>
+
+ </ion-content> </ion-view>

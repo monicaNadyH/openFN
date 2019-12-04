@@ -1,0 +1,16 @@
+.notification-btn{
+	margin-top: 0px;
+	border-radius: 3px;
+    /*margin-left: 12%;*/
+    width: 80%;
+    text-align: center;
+    background: transparent!important;
+    border: #88C33E 1px solid!important;
+    color: #88C33E!important;
+    font-size: 12pt!important;
+}
+
+label.email {
+	width: 86%;
+	margin-left: 7% !important;
+}

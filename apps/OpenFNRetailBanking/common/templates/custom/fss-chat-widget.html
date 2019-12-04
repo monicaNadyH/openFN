@@ -1,0 +1,45 @@
+<div class="padding0 center">
+	<div ng-if="showAccountOverview" class="padding0 center">
+		<fss-accounts overview="response.context.customerPosition" type="'chat'"></fss-accounts>
+	</div>
+
+	<ion-slide-box show-pager="{{showMultipleGraphs}}" ng-if="showAssets || showLiabilities" delegate-handle="slidehandle" style="width:250px;height:305px;border:0px solid;padding-left:5px;">
+		<ion-slide ng-if="showAssets">
+			<fss-graph chart="pie" data="response.context.customerPosition.asset.allocations" type="'chat'"></fss-graph>
+		</ion-slide>
+		<ion-slide ng-if="showLiabilities">
+			<fss-graph chart="pie" data="response.context.customerPosition.liability.allocations" type="'chat'"></fss-graph>
+		</ion-slide>
+	</ion-slide-box>
+	
+	<div ng-if="showInvestments" class="padding0 center">
+		<fss-investments overview="response.context.customerPosition" entities="response.entities"	type="'chat'"></fss-investments>
+	</div>
+	
+	<div ng-if="showOffers" class="padding0 center">
+		<fss-offers offers="response.context.action.result.offers"	type="'chat'"></fss-offers>
+	</div>
+	
+	<div ng-if="showYesNo" class="padding0 center">
+		<fss-yes-no type="'chat'"></fss-yes-no>
+	</div>
+	
+	<div ng-if="showBillInquiry1" class="padding0 center">
+		<fss-bill-inquiry  type="'chat'" data="response.context.session" template="'1'"></fss-bill-inquiry>
+	</div>
+	<div ng-if="showBillInquiry2" class="padding0 center">
+		<fss-bill-inquiry  type="'chat'" data="response.context.session" template="'2'"></fss-bill-inquiry>
+	</div>
+	<div ng-if="showBillInquiry3" class="padding0 center">
+		<fss-bill-inquiry  type="'chat'" data="response.context.session" template="'3'"></fss-bill-inquiry>
+	</div>
+	<div ng-if="showBillInquiry4" class="padding0 center">
+		<fss-bill-inquiry  type="'chat'" data="response.context.session" template="'4'"></fss-bill-inquiry>
+	</div>
+	<div ng-if="showBillInquiry5" class="padding0 center">
+		<fss-bill-inquiry  type="'chat'" data="response.context.session" template="'5'"></fss-bill-inquiry>
+	</div>
+	<div ng-if="showSelectPayment" class="padding0 center">
+		<fss-bill-select-payment  type="'chat'" data="response.context.session"></fss-bill-select-payment>
+	</div>
+</div>

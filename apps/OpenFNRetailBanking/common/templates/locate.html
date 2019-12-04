@@ -1,0 +1,81 @@
+<ion-view view-title="Locations" can-swipe-back="false" cache-view="true"> <!-- commented out for CIE view-title="{{ title }}" -->
+ <ion-content  style="background:#efefef;">
+	
+  	<!-- commented out for CIE -->
+  	<!-- <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+  	</ion-refresher>
+	<div class="padding0">
+		<div class="row paddingbottom25">
+			<div class="col  center pay-padding title-font">Welcome!</div>
+		</div>
+		<div class="description row">
+			<div class="col center welcome-padding">OpenFN has branch and
+				ATM facilities available in this area. <br/>You can earn double points on
+				dining when you register your OpenFN credit card.</div>
+	
+			<button class="buy-btn green-btn-locator activate-btn-margin"
+				style="margin-top: 20px; margin-bottom: 30px;"
+				ng-show="!cardActivated" ng-click="cardActivated=true">Register
+				Credit Card</button>
+	
+			<div class="col center green-div" ng-show="cardActivated"
+				style="margin-top: 15px; margin-bottom: 15px; height: 35px;">
+				<img src="images/green-checkmark.png" class="green-icon" /> Card
+				Registered
+			</div>
+		</div>
+	
+		<div class="page-content">
+			<a class="item item-icon-left line1"
+				style="margin-top: 60px; background: #FFF; font-size: 10pt;"
+				href="#" ng-click="mapsChecked=!mapsChecked;"> <i class="icon"><img
+					src="images/bank-icon.png" class="bank-icon" /></i> Our services in
+				this area <span class="badge arrows"><img
+					src="images/{{ mapsChecked ? 'arrow-up' : 'arrow-down' }}.png"
+					width="20%" /></span>
+			</a>
+			<div class="row" style="margin: 0px; padding: 0px;height:225px;"
+				ng-show="mapsChecked">
+				<div class="col maps">
+					<ui-gmap-google-map center='map.center' zoom='map.zoom'
+						data-tap-disabled="true"> <ui-gmap-markers
+						idKey="'idKey'" models="atmBranchMarkers" coords="'self'"
+						icon="'icon'" click="onClick"> <ui-gmap-windows
+						show="show">
+					<div ng-non-bindable>{{title}}</div>
+					</ui-gmap-windows> </ui-gmap-markers> </ui-gmap-google-map>
+				</div>
+			</div>
+			<a class="item item-icon-left line1"
+				style="background: #FFF; font-size: 10pt;" href="#"
+				ng-click="mapsChecked=!mapsChecked;"> <i class="icon"><img
+					src="images/star-icon.png" class="bank-icon" /></i> Recommended
+				restaurants<span class="badge arrows"><img
+					src="images/{{ !mapsChecked ? 'arrow-up' : 'arrow-down' }}.png"
+					width="20%" /></span>
+			</a>
+			<div class="row padding0 padding20 restaurants-div"
+				ng-hide="mapsChecked">
+				<ion-scroll direction="x" style="width:99%; text-align:center;" zooming="false">
+					<div class="row">
+						<div class="col-33">
+							<img src="images/restaurant1.png" class="result-tile" />
+						</div>
+						<div class="col-33">
+							<img src="images/restaurant2.png" class="result-tile" />
+						</div>
+						<div class="col-33">
+							<img src="images/restaurant3.png" class="result-tile" />
+						</div>
+						<div class="col-33">
+							<img src="images/restaurant4.png" class="result-tile" />
+						</div>
+					</div>
+				</ion-scroll>
+	
+			</div>
+		</div>
+	</div> -->
+</ion-content> </ion-view>
+
+
